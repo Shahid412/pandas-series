@@ -1,0 +1,9 @@
+# Pandas program to display most frequent value in a given series and replace everything else as ‘Other’ in the series.
+import pandas as pd
+import numpy as np
+np.random.RandomState(100)
+num_series = pd.Series(np.random.randint(1, 5, [15]))
+print("Original Series:")
+print(num_series)
+print("Top 2 Freq:", num_series.value_counts())
+result = num_series[~num_series.isin(num_series.value_counts().index[:1])] = 'Other'
